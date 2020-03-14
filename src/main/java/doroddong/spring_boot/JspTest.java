@@ -13,7 +13,9 @@ public class JspTest {
     BoardMapper mBoardMapper;
 
     @RequestMapping("/test")
-    private String jspTest(){
+    private String jspTest() throws Exception {
+        int temp =mBoardMapper.boardCount();
+        System.out.println(temp);
         return "test"; //생성한 jsp명 (test.jsp)
     }
 }
