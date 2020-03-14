@@ -51,9 +51,15 @@ public class BoardController {
     }
 
     @RequestMapping("/updateProc")
-    private int boardUpdateProc(HttpServletRequest request) throws Exception{
-        BoardVO board=(BoardVO) request.getParameterMap();
-        return boardService.boardUpdateService(board);
+    private String boardUpdateProc(HttpServletRequest request) throws Exception{
+        BoardVO board = new BoardVO();
+        board.setSubject(request.getParameter("subject"));
+        board.setContent(request.getParameter("content"));
+        board.setBno(Integer.parseInt(request.getParameter("bno")));  //String으로 넘어오기 때문에 int로 바꿔줌
+
+        boardService.boardUpdateService(board);
+
+        return "redirect:/detail/"+request.getParameter("bno");
     }
     @RequestMapping("/delete/{bno}")
     private String boardDelete(@PathVariable int bno) throws Exception{
