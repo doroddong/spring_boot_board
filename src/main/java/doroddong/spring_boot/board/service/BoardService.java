@@ -1,6 +1,7 @@
 package doroddong.spring_boot.board.service;
 
 import doroddong.spring_boot.board.domain.BoardVO;
+import doroddong.spring_boot.board.domain.FileVO;
 import doroddong.spring_boot.board.mapper.BoardMapper;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +31,8 @@ public class BoardService {
     }
     public int boardDeleteService(int bno) throws Exception{
         return boardMapper.boardDelete(bno);
+    }
+    public int fileInsertService(FileVO file) throws Exception{
+        return boardMapper.fileInsert(file);
     }
 }

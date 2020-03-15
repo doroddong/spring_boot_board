@@ -1,6 +1,7 @@
 package doroddong.spring_boot.board.mapper;
 
 import doroddong.spring_boot.board.domain.BoardVO;
+import doroddong.spring_boot.board.domain.FileVO;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -26,4 +27,6 @@ public interface BoardMapper {
 
     //게시글 삭제
     public int boardDelete(int bno) throws Exception;
+
+    public int fileInsert(FileVO fileVO) throws Exception;
 }
