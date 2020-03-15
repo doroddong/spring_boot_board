@@ -29,4 +29,6 @@ public interface BoardMapper {
     public int boardDelete(int bno) throws Exception;
 
     public int fileInsert(FileVO fileVO) throws Exception;
+
+    public FileVO fileDetail(int bno) throws Exception;
 }

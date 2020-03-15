@@ -29,6 +29,10 @@
             <label>작성날짜</label>
             <p>${detail.reg_date}</p>
         </div>
+        <div class="form-group"> <!-- 첨부파일 다운로드 -->
+            <label>첨부파일</label>
+            <p><a href="/fileDown/${files.bno}">${files.fileOriName}</a></p>
+        </div>                    <!-- //첨부파일 다운로드 -->
         <div class="form-group">
             <label>내용</label>
             <p>${detail.content}</p>

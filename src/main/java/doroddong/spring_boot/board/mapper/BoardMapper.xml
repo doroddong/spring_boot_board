@@ -35,6 +35,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         VALUES (#{fno},#{bno},#{fileName},#{fileOriName},#{fileUrl})
     </insert>
 
+    <select id="fileDetail" parameterType="int" resultType="doroddong.spring_boot.board.domain.FileVO">
+        SELECT
+            *
+        FROM FILES
+        WHERE
+            BNO=#{bno}
+    </select>
+
 
     <update id="boardUpdate" parameterType="doroddong.spring_boot.board.domain.BoardVO">
         UPDATE BOARD

@@ -35,4 +35,7 @@ public class BoardService {
     public int fileInsertService(FileVO file) throws Exception{
         return boardMapper.fileInsert(file);
     }
+    public FileVO fileDetailService(int bno) throws Exception{
+        return boardMapper.fileDetail(bno);
+    }
 }
