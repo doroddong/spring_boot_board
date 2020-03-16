@@ -4,13 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="layoutTag" tagdir="/WEB-INF/tags"%>
 <layoutTag:layout>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-    <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Detail</title>
-    </head>
-    <body>
 
     <div class="container">
         <div class="col-xs-12" style="margin:15px auto;">
@@ -44,9 +37,26 @@
                 <button type="button" class="btn btn-default" onclick="location.href='/list'"> 목록 </button>
             </div>
         </div>
+
+        <!--                     추가                         -->
+        <!--  댓글  -->
+        <div class="container">
+            <label for="content">comment</label>
+            <form name="commentInsertForm">
+                <div class="input-group">
+                    <input type="hidden" name="bno" value="${detail.bno}"/>
+                    <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" name="commentInsertBtn">등록</button>
+               </span>
+                </div>
+            </form>
+        </div>
+
+        <div class="container">
+            <div class="commentList"></div>
+        </div>
     </div>
 
-
-    </body>
-    </html>
+    <%@ include file="commentS.jsp" %>
 </layoutTag:layout>
