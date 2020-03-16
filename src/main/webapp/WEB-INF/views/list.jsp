@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="layoutTag" tagdir="/WEB-INF/tags"%>
+<layoutTag:layout>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,7 +25,7 @@
             <th>Date</th>
         </tr>
         <c:forEach var="l" items="${list}">
-            <tr onclick="location.href='/detail/${l.bno}'"> <!-- 이 부분 수정! -->
+            <tr onclick="location.href='/detail/${l.bno}'">
                 <td>${l.bno}</td>
                 <td>${l.subject}</td>
                 <td>${l.writer}</td>
@@ -34,6 +37,6 @@
 </div>
 
 
-<%@ include file="bootstrap.jsp" %>
 </body>
 </html>
+</layoutTag:layout>
