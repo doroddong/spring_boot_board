@@ -23,7 +23,7 @@ public class BoardController {
     @Resource(name = "doroddong.spring_boot.board.service.BoardService")
     BoardService boardService;
 
-    @Value("${file.upload.directory}") // read application.properties's value
+    @Value("${file.upload.directory}")
     String uploadFileDir;
 
 
