@@ -5,6 +5,7 @@ import doroddong.spring_boot.board.domain.FileVO;
 import doroddong.spring_boot.board.service.BoardService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,10 @@ import java.io.*;
 public class BoardController {
     @Resource(name = "doroddong.spring_boot.board.service.BoardService")
     BoardService boardService;
+
+    @Value("${file.upload.directory}") // read application.properties's value
+    String uploadFileDir;
+
 
     //게시판 리스트 화면 호출
     @RequestMapping("/list")
@@ -57,11 +62,10 @@ public class BoardController {
             String fileNameExtension = FilenameUtils.getExtension(fileName).toLowerCase();
             File destinationFile;
             String destinationFileName;
-            String fileUrl = "C:\\Users\\dongp\\OneDrive - 아주대학교\\바탕 화면\\spring_boot\\spring_boot\\src\\main\\webapp\\WEB-INF\\uploadFiles\\";
 
             do {
                 destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + fileNameExtension;
-                destinationFile = new File(fileUrl + destinationFileName);
+                destinationFile = new File(uploadFileDir + destinationFileName);
             } while (destinationFile.exists());
 
             destinationFile.getParentFile().mkdirs();
@@ -79,7 +83,7 @@ public class BoardController {
             file.setBno(board.getBno());
             file.setFileName(destinationFileName);
             file.setFileOriName(fileName);
-            file.setFileUrl(fileUrl);
+            file.setFileUrl(uploadFileDir);
 
             boardService.fileInsertService(file);
         }
